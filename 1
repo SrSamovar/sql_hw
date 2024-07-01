@@ -1,0 +1,46 @@
+CREATE TABLE IF NOT EXISTS Genre (
+  id SERIAL PRIMARY KEY,
+  genre VARCHAR(30) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Musician (
+  id SERIAL PRIMARY KEY,
+  musician VARCHAR(30) NOT NULL
+);
+
+create table if not exists GenreMusician(
+  Genre_id integer references Genre(id),
+  Musician_id integer references Musician(id),
+  constraint pk_genre_musician primary key (Musician_id, Genre_id)
+);
+
+CREATE TABLE IF NOT EXISTS Album (
+  id SERIAL PRIMARY KEY,
+  album VARCHAR(60) NOT NULL,
+  year_of_release INTEGER check(year_of_release >= 1999)
+);
+
+CREATE TABLE IF NOT EXISTS MusicianAlbum (
+  Musician_id INTEGER REFERENCES Musician(id),
+  Album_id INTEGER REFERENCES Album(id),
+  CONSTRAINT pk_musician_album PRIMARY KEY (musician_id, album_id)
+);
+
+CREATE TABLE IF NOT EXISTS Track (
+  id SERIAL primary key,
+  album_id INTEGER references Album(id),
+  track_name VARCHAR(60),
+  duration int  check(duration >= 90 and duration <= 300)
+);
+
+CREATE TABLE IF NOT EXISTS Complation (
+  id SERIAL PRIMARY KEY,
+  complation_name VARCHAR(30) NOT NULL,
+  year_of_release INTEGER check(year_of_release >= 2019)
+);
+
+CREATE TABLE IF NOT EXISTS TrackComplation (
+  Track_id INTEGER REFERENCES Track(id),
+  Complation_id INTEGER REFERENCES Complation(id),
+  CONSTRAINT pk_track_complation PRIMARY KEY (Track_id, Complation_id)
+);

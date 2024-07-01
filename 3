@@ -1,0 +1,58 @@
+select duration, track_name 
+from track
+where duration = (select max(duration) from track);
+
+select track_name
+from track 
+where duration >= 210;
+
+select complation_name 
+from complation 
+where year_of_release >= 2018 and year_of_release <= 2020;
+
+select musician 
+from musician 
+where musician not like '% %';
+
+select track_name 
+from track 
+where track_name like '%my%' or track_name like '%мой%' or track_name like '%My%' or track_name  like '%Мой%';
+
+select g.genre, count(distinct gm.musician_id) 
+from genre g
+join genremusician gm on g.id = gm.genre_id 
+group by g.genre;
+
+select a.album, a.year_of_release, count(track.id) 
+from album a
+join track on a.id = track.album_id 
+where a.year_of_release between 2019 and 2020
+group by a.album, a.year_of_release;
+
+SELECT Album.album, AVG(Track.duration)
+FROM Album
+JOIN Track ON Album.id = Track.album_id
+GROUP BY Album.album;
+
+select m.musician
+from musician m 
+join musicianalbum ma on m.id = ma.musician_id 
+join album a on ma.album_id = a.id 
+where a.year_of_release != 2020;
+
+select c.complation_name 
+from complation c 
+join trackcomplation tc on c.id = tc.complation_id 
+join track t on tc.track_id = t.id 
+join album a on t.album_id = a.id 
+join musicianalbum ma on a.id = ma.album_id 
+join musician m on ma.musician_id = m.id 
+where m.id = 1
+group by c.complation_name;
+
+
+
+
+
+
+

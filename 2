@@ -1,0 +1,89 @@
+insert into genre (genre)
+	values ('Реп');
+	
+insert into genre(genre)
+	values ('Рок');
+	
+insert into genre (genre)
+	values ('Хип-хоп');
+
+insert into musician (musician)
+	values ('Баста');
+
+insert into musician (musician)
+	values ('Эминем');
+
+insert into musician (musician)
+	values ('Fun Mode');
+
+insert into musician (musician)
+	values ('Ольга Бузова');
+
+insert into genremusician (genre_id, musician_id) values (1, 1);
+
+insert into genremusician (genre_id, musician_id) values (2, 3);
+
+insert into genremusician (genre_id, musician_id) values (3, 2);
+
+insert into genremusician (genre_id, musician_id) values (1, 4);
+
+insert into album (album, year_of_release)
+	values ('Баста 1', 2006);
+
+insert into album (album, year_of_release)
+	values ('Я буду здесь', 2020);
+
+insert into album (album, year_of_release)
+	values ('Kamikaze', 2018);
+
+insert into musicianalbum (musician_id, album_id) values (1, 1);
+
+insert into musicianalbum (musician_id, album_id) values (2, 3);
+
+insert into musicianalbum (musician_id, album_id) values (3, 2);
+
+insert into track (album_id, track_name, duration)
+	values (1, 'Раз и навсегда', 216);
+
+insert into track (album_id, track_name, duration)
+	values (1, 'Мама', 236);
+
+insert into track (album_id, track_name, duration)
+	values (2, 'Вор и принцесса', 216);
+
+insert into track (album_id, track_name, duration)
+	values (2, 'Стены цитадели', 216);
+
+insert into track (album_id, track_name, duration)
+	values (3, 'Brain damage', 226);
+	
+insert into track (album_id, track_name, duration)
+	values (3, 'My name is', 268);
+
+insert into complation (complation_name, year_of_release)
+	values ('Сборник 1', 2019);
+
+insert into complation (complation_name, year_of_release)
+	values ('Сборник 2', 2020);
+
+insert into complation (complation_name, year_of_release)
+	values ('Сборник 3', 2021);
+
+insert into complation (complation_name, year_of_release)
+	values ('Сборник 4', 2022);
+
+insert into trackcomplation (complation_id, track_id) values (1, 1);
+
+insert into trackcomplation (complation_id, track_id) values (2, 2);
+
+insert into trackcomplation (complation_id, track_id) values (3, 3);
+
+insert into trackcomplation (complation_id, track_id) values (4, 4);
+
+insert into trackcomplation (complation_id, track_id) values (1, 5);
+
+insert into trackcomplation (complation_id, track_id) values (2, 6);
+
+insert into trackcomplation (complation_id, track_id) values (3, 2);
+
+insert into trackcomplation (complation_id, track_id) values (4, 6);
